@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/cliche-weather-app/static/css/main.33ce0f61.chunk.css",
+    "main.js": "/cliche-weather-app/static/js/main.fbaf7d6c.chunk.js",
+    "main.js.map": "/cliche-weather-app/static/js/main.fbaf7d6c.chunk.js.map",
+    "runtime-main.js": "/cliche-weather-app/static/js/runtime-main.42500b30.js",
+    "runtime-main.js.map": "/cliche-weather-app/static/js/runtime-main.42500b30.js.map",
+    "static/js/2.c2244a8a.chunk.js": "/cliche-weather-app/static/js/2.c2244a8a.chunk.js",
+    "static/js/2.c2244a8a.chunk.js.map": "/cliche-weather-app/static/js/2.c2244a8a.chunk.js.map",
+    "index.html": "/cliche-weather-app/index.html",
+    "static/css/main.33ce0f61.chunk.css.map": "/cliche-weather-app/static/css/main.33ce0f61.chunk.css.map",
+    "static/js/2.c2244a8a.chunk.js.LICENSE.txt": "/cliche-weather-app/static/js/2.c2244a8a.chunk.js.LICENSE.txt",
+    "static/media/App.scss": "/cliche-weather-app/static/media/hero.91149f86.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.42500b30.js",
+    "static/js/2.c2244a8a.chunk.js",
+    "static/css/main.33ce0f61.chunk.css",
+    "static/js/main.fbaf7d6c.chunk.js"
+  ]
+}
