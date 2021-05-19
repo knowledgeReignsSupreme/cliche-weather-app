@@ -53,6 +53,8 @@ function WeatherDisplay({ debouncedCity }) {
   const [isNotFound, setIsNotFound] = useState(false);
   const weatherData = useFetchWeather(debouncedCity, setIsNotFound);
 
+  const isEmpty = Object.keys(weatherData).length === 0;
+
   return (
     <div className='weather'>
       <div className='weather__content'>
@@ -70,8 +72,11 @@ function WeatherDisplay({ debouncedCity }) {
               )}
         </h3>
         <div className='weather__content__cards'>
-          {isNotFound && <p>{isNotFound}</p>}
-          <WeatherCard weatherData={weatherData} />
+          {isNotFound ? (
+            <p>{isNotFound}</p>
+          ) : (
+            !isEmpty && <WeatherCard weatherData={weatherData} />
+          )}
         </div>
       </div>
     </div>
@@ -90,16 +95,26 @@ function WeatherCard({ weatherData }) {
     iconCode = weatherData?.weather[0]?.icon;
   }
 
+  const isHot = main?.temp > 23;
+
   return (
     <div className='weather__card'>
-      <h3>{name}</h3>
-      <p>{countryCode}</p>
-      {main && main.temp}
-      {description && description.toUpperCase()}
+      <div className='weather__card__city'>
+        <h3>{name}</h3>
+        <p className={isHot ? 'sunny-weather' : 'rainy-weather'}>
+          {countryCode}
+        </p>
+      </div>
       <img
         src={`http://openweathermap.org/img/wn/${iconCode}@2x.png`}
         alt={`${description} icon`}
       />
+      <div className='weather__card__temp'>
+        <p>{main && main.temp.toFixed(0)} °C</p>
+      </div>
+      <div className='weather__card__desc'>
+        <p>{description && description.toUpperCase()}</p>
+      </div>
     </div>
   );
 }

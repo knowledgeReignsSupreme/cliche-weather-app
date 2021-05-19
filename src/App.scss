@@ -101,4 +101,32 @@
   @media (min-width: 900px) {
     margin-left: 1rem;
   }
+
+  &__card {
+    max-width: 15rem;
+    margin: 0 auto;
+    box-shadow: $common-box-shadow;
+    padding: 4rem 0;
+
+    &__city {
+      display: flex;
+      justify-content: center;
+
+      p {
+        margin-left: .3rem;
+        font-weight: bold;
+        padding: .2rem .3rem;
+      }
+    }
+  }
+}
+
+.rainy-weather {
+  background: $rainy;
+  color: white;
+}
+
+.sunny-weather {
+  background: $sunny;
+  color: black;
 }

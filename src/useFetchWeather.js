@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 
 export function useFetchWeather(keyword, setIsNotFound) {
-  const [weatherData, setWeatherData] = useState([]);
+  const [weatherData, setWeatherData] = useState({});
 
   const getWeatherData = useCallback(async () => {
     if (!keyword) return;
