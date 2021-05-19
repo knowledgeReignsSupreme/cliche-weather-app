@@ -13,13 +13,13 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 95%;
+    width: 97%;
     margin: 0 auto;
     max-width: 2000px;
     padding: .5rem 0;
 
     &-logo {
-      h2 {
+      h3 {
         color: $sunny;
         text-transform: uppercase;
       }
@@ -34,12 +34,13 @@ nav {
     border: 1px solid $sunny;
     padding-left: .5rem;
     border-radius: 15px;
+    margin-left: .3rem;
   }
 
   .fa-search {
     position: absolute;
     right: .6rem;
-    top: .5rem;
+    top: .4rem;
 
     color: $sunny;
     font-weight: bold;
