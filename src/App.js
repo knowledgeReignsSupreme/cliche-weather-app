@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import './App.scss';
 import Appbar from './Appbar';
+import { useDebounce } from './useDebounce';
 import { useFetchWeather } from './useFetchWeather';
 
 function App() {
   const inputRef = useRef();
   const [isSearching, setIsSearching] = useState(false);
   const [city, setCity] = useState('');
+  const debouncedCity = useDebounce(city);
 
   function toggleIsSearching() {
     setIsSearching(!isSearching);
@@ -24,7 +26,7 @@ function App() {
     <>
       <Appbar inputRef={inputRef} setCityKeyword={setCityKeyword} />
       <Header toggleIsSearching={toggleIsSearching} />
-      <WeatherDisplay city={city} />
+      <WeatherDisplay debouncedCity={debouncedCity} />
     </>
   );
 }
@@ -47,14 +49,16 @@ function Header({ toggleIsSearching }) {
   );
 }
 
-function WeatherDisplay({ city }) {
-  useFetchWeather();
+function WeatherDisplay({ debouncedCity }) {
+  const [isNotFound, setIsNotFound] = useState(false);
+  const weatherData = useFetchWeather(debouncedCity, setIsNotFound);
+
   return (
     <div className='weather'>
       <div className='weather__content'>
         <h3 className='weather__header'>
           Showing weather in{' '}
-          {city || (
+          {debouncedCity || (
             <>
               {'{city}'}{' '}
               <span className='weather__small-text'>
@@ -63,6 +67,9 @@ function WeatherDisplay({ city }) {
             </>
           )}
         </h3>
+        <div className='weather__content__cards'>
+          {isNotFound && <p>{isNotFound}</p>}
+        </div>
       </div>
     </div>
   );
