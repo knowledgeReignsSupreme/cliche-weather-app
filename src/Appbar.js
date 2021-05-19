@@ -2,12 +2,6 @@ import React, { useState } from 'react';
 import './appbar.scss';
 
 export default function Appbar({ inputRef }) {
-  const [isSearching, setIsSearching] = useState(false);
-
-  function toggleIsSearching() {
-    setIsSearching(!isSearching);
-  }
-
   return (
     <nav className='nav__outter'>
       <div className='nav__inner'>
@@ -17,20 +11,19 @@ export default function Appbar({ inputRef }) {
         >
           <h3>Cliché Weather App</h3>
         </div>
-        <SearchBox toggleIsSearching={toggleIsSearching} inputRef={inputRef} />
+        <SearchBox inputRef={inputRef} />
       </div>
     </nav>
   );
 }
 
-function SearchBox({ toggleIsSearching, inputRef }) {
+function SearchBox({ inputRef }) {
   return (
     <div className='search__box'>
       <input
         ref={inputRef}
         className='search__box__input'
         placeholder='Search city...'
-        onClick={toggleIsSearching}
       />
       <i class='fas fa-search'></i>
     </div>

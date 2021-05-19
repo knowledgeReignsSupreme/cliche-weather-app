@@ -51,7 +51,6 @@
 
       h3 {
         font-size: clamp(1.1rem, 2.3vw, 1.5rem);
-
       }
 
       h2,
@@ -69,6 +68,12 @@
       color: white;
       padding: .5rem 1rem;
       margin-top: .5rem;
+      box-shadow: $common-box-shadow;
+      transition: padding .3s ease-out;
+
+      &:hover {
+        padding: .5rem 1.2rem;
+      }
     }
   }
 
