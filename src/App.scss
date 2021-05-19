@@ -1,0 +1,42 @@
+@import './Variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+&::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+body {
+  color: $text;
+}
+
+h1,
+h2,
+h3 {
+  color: $text-headers;
+}
