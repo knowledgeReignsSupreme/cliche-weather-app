@@ -64,7 +64,7 @@ function WeatherDisplay({ debouncedCity }) {
             ? weatherData?.name
             : debouncedCity || (
                 <>
-                  {'{city}'}{' '}
+                  {'{city}'}
                   <span className='weather__small-text'>
                     it's not a bug. it's a featue!
                   </span>
@@ -73,7 +73,7 @@ function WeatherDisplay({ debouncedCity }) {
         </h3>
         <div className='weather__content__cards'>
           {isNotFound ? (
-            <p>{isNotFound}</p>
+            <p className='not-found'>{isNotFound}</p>
           ) : (
             !isEmpty && <WeatherCard weatherData={weatherData} />
           )}
@@ -105,10 +105,12 @@ function WeatherCard({ weatherData }) {
           {countryCode}
         </p>
       </div>
-      <img
-        src={`http://openweathermap.org/img/wn/${iconCode}@2x.png`}
-        alt={`${description} icon`}
-      />
+      <div className='weather__card__icon'>
+        <img
+          src={`http://openweathermap.org/img/wn/${iconCode}@2x.png`}
+          alt={`${description} icon`}
+        />
+      </div>
       <div className='weather__card__temp'>
         <p>{main && main.temp.toFixed(0)} °C</p>
       </div>

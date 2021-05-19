@@ -17,8 +17,10 @@ export function useFetchWeather(keyword, setIsNotFound) {
       );
       setWeatherData(data);
     } catch (error) {
-      if (error?.response?.status === 404)
+      if (error?.response?.status === 404) {
         setIsNotFound(`City ${keyword} was not found.`);
+        setWeatherData({});
+      }
     }
   }, [keyword, setIsNotFound]);
 
