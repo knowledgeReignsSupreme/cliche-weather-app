@@ -39,7 +39,7 @@ function Header({ toggleIsSearching }) {
       <div className='header__content'>
         <div className='header__content__text'>
           <h2>The Cliché Weather App</h2>
-          <h3>It's just another weather app.. really</h3>
+          <h3>Just another useless weather app...</h3>
         </div>
         <button className='header__content__button' onClick={toggleIsSearching}>
           Okay Weatherboy!
