@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './appbar.scss';
 
-export default function Appbar({ inputRef }) {
+export default function Appbar({ inputRef, setCityKeyword }) {
   return (
     <nav className='nav__outter'>
       <div className='nav__inner'>
@@ -11,19 +11,20 @@ export default function Appbar({ inputRef }) {
         >
           <h3>Cliché Weather App</h3>
         </div>
-        <SearchBox inputRef={inputRef} />
+        <SearchBox inputRef={inputRef} setCityKeyword={setCityKeyword} />
       </div>
     </nav>
   );
 }
 
-function SearchBox({ inputRef }) {
+function SearchBox({ inputRef, setCityKeyword }) {
   return (
     <div className='search__box'>
       <input
         ref={inputRef}
         className='search__box__input'
         placeholder='Search city...'
+        onChange={setCityKeyword}
       />
       <i class='fas fa-search'></i>
     </div>

@@ -76,6 +76,29 @@
       }
     }
   }
+}
 
 
+.weather {
+  margin-top: 1rem;
+
+  &__content {
+    max-width: 2000px;
+    margin: 0 auto;
+  }
+
+  &__small-text {
+    color: $text;
+    font-size: .6rem;
+  }
+
+
+  @media (max-width: 900px) {
+    align-items: center;
+    text-align: center;
+  }
+
+  @media (min-width: 900px) {
+    margin-left: 1rem;
+  }
 }
