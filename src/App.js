@@ -58,19 +58,48 @@ function WeatherDisplay({ debouncedCity }) {
       <div className='weather__content'>
         <h3 className='weather__header'>
           Showing weather in{' '}
-          {debouncedCity || (
-            <>
-              {'{city}'}{' '}
-              <span className='weather__small-text'>
-                it's not a bug. it's a featue!
-              </span>
-            </>
-          )}
+          {weatherData?.name
+            ? weatherData?.name
+            : debouncedCity || (
+                <>
+                  {'{city}'}{' '}
+                  <span className='weather__small-text'>
+                    it's not a bug. it's a featue!
+                  </span>
+                </>
+              )}
         </h3>
         <div className='weather__content__cards'>
           {isNotFound && <p>{isNotFound}</p>}
+          <WeatherCard weatherData={weatherData} />
         </div>
       </div>
+    </div>
+  );
+}
+
+function WeatherCard({ weatherData }) {
+  const { name } = weatherData;
+  const { main } = weatherData;
+  const countryCode = weatherData?.sys?.country;
+  let description;
+  let iconCode;
+
+  if (weatherData?.weather) {
+    description = weatherData?.weather[0]?.description;
+    iconCode = weatherData?.weather[0]?.icon;
+  }
+
+  return (
+    <div className='weather__card'>
+      <h3>{name}</h3>
+      <p>{countryCode}</p>
+      {main && main.temp}
+      {description && description.toUpperCase()}
+      <img
+        src={`http://openweathermap.org/img/wn/${iconCode}@2x.png`}
+        alt={`${description} icon`}
+      />
     </div>
   );
 }

@@ -15,7 +15,6 @@ export function useFetchWeather(keyword, setIsNotFound) {
           keyword ?? 'tel-aviv'
         }&units=metric&appid=${process.env.REACT_APP_OPEN_WEATHER_API_KEYS}`
       );
-
       setWeatherData(data);
     } catch (error) {
       if (error?.response?.status === 404)
