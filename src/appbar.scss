@@ -2,7 +2,6 @@
 
 nav {
   background: $color-theme-main;
-
 }
 
 .nav {
@@ -11,6 +10,11 @@ nav {
   }
 
   &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    margin: 0 auto;
     max-width: 2000px;
     padding: .5rem 0;
 
@@ -19,6 +23,31 @@ nav {
         color: $sunny;
         text-transform: uppercase;
       }
+    }
+  }
+}
+
+.search__box {
+  position: relative;
+
+  &__input {
+    border: 1px solid $sunny;
+    padding-left: .5rem;
+    border-radius: 15px;
+  }
+
+  .fa-search {
+    position: absolute;
+    right: .6rem;
+    top: .5rem;
+
+    color: $sunny;
+    font-weight: bold;
+  }
+
+  &:hover {
+    .fa-search {
+      opacity: .6;
     }
   }
 }
