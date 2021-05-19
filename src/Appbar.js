@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './appbar.scss';
 
 export default function Appbar({ inputRef, setCityKeyword }) {
@@ -26,7 +26,7 @@ function SearchBox({ inputRef, setCityKeyword }) {
         placeholder='Search city...'
         onChange={setCityKeyword}
       />
-      <i class='fas fa-search'></i>
+      <i className='fas fa-search'></i>
     </div>
   );
 }

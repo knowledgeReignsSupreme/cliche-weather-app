@@ -5,11 +5,19 @@ export function useFetchWeather(keyword) {
   const [weatherData, setWeatherData] = useState([]);
 
   const getWeatherData = useCallback(async () => {
-    const data = await axios.get(
-      `http://api.openweathermap.org/data/2.5/weather?q=${keyword}&appid=${process.env.REACT_APP_OPEN_WEATHER_API_KEYS}`
-    );
+    if (!keyword) return;
 
-    setWeatherData(data);
+    try {
+      const { data } = await axios.get(
+        `http://api.openweathermap.org/data/2.5/weather?q=${
+          keyword ?? 'tel-aviv'
+        }&units=metric&appid=${process.env.REACT_APP_OPEN_WEATHER_API_KEYS}`
+      );
+
+      console.log(data);
+
+      setWeatherData(data);
+    } catch (error) {}
   }, [keyword]);
 
   useEffect(() => {

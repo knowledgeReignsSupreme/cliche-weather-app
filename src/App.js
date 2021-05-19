@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './App.scss';
 import Appbar from './Appbar';
+import { useFetchWeather } from './useFetchWeather';
 
 function App() {
   const inputRef = useRef();
@@ -47,6 +48,7 @@ function Header({ toggleIsSearching }) {
 }
 
 function WeatherDisplay({ city }) {
+  useFetchWeather();
   return (
     <div className='weather'>
       <div className='weather__content'>
