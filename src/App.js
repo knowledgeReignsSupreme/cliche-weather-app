@@ -1,8 +1,10 @@
 import './App.scss';
+import Appbar from './Appbar';
 
 function App() {
   return (
     <>
+      <Appbar />
       <Header />
     </>
   );
